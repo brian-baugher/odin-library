@@ -21,4 +21,10 @@ function Book(title, author, pages, read){
         }
     }
 }
-
+/**
+ * 
+ * @param {Book} book 
+ */
+function addBookToLibrary(book){
+    myLibrary.push(book)
+}
