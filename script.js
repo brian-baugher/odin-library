@@ -1,3 +1,4 @@
+
 let myLibrary = [];
 
 /**
@@ -30,6 +31,9 @@ function addBookToLibrary(book){
 }
 
 function displayBooks(){
+    const container = document.getElementById('books')
+    const boxes = document.querySelectorAll('#books *')
+    boxes.forEach((x)=>{x.remove()})
     for(let book of myLibrary){
         const card = document.createElement('div')
         card.classList.add('book')
@@ -39,14 +43,21 @@ function displayBooks(){
         card.classList.add('info')
         card.appendChild(inf)
 
-        const container = document.getElementById('books')
         container.appendChild(card)
     }
 }
 
+const form = document.getElementById('new-book-form')
+form.style.display = 'none'
+
+const title = document.getElementById('title')
+
 function openForm(){
-    
+    form.style.display = 'flex'
+    form.style.flexDirection = 'column'
 }
+
+const subBtn = document.querySelector('.submit-btn')
 
 const newBook = document.getElementById('new-book')
 newBook.addEventListener('click', openForm)
@@ -60,5 +71,14 @@ addBookToLibrary(b2)
 addBookToLibrary(b3)
 addBookToLibrary(b3)
 addBookToLibrary(b3)
+
+subBtn.addEventListener('click', (eve)=>{
+    eve.preventDefault()
+    form.style.display = 'none'
+    let temp = new Book(title.value, 'h', 4, false)
+    console.log(temp)
+    addBookToLibrary(temp)
+    displayBooks()
+})
 
 displayBooks()
