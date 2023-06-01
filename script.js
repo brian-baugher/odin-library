@@ -44,12 +44,21 @@ function displayBooks(){
     }
 }
 
+function openForm(){
+    
+}
+
+const newBook = document.getElementById('new-book')
+newBook.addEventListener('click', openForm)
+
 let b1 = new Book('book 1', 'brian', 50, false)
 let b2 = new Book('book 2', 'betsy', 100, true)
 let b3 = new Book('book 3', 'sean', 150, true)
 
 addBookToLibrary(b1)
 addBookToLibrary(b2)
+addBookToLibrary(b3)
+addBookToLibrary(b3)
 addBookToLibrary(b3)
 
 displayBooks()
